@@ -1,0 +1,115 @@
+.create-presentation {
+	background-color: var(--color__pryblutodrkblu);
+	position: absolute;
+	top: -2px;
+	left: 0;
+	width: 100%;
+	min-height: calc(100% + 4px);
+	border-radius: 8px;
+	padding: 32px 40px 32px 36px;
+	z-index: 1;
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 0.4s,
+		visibility 0.4s;
+	@include breakpoint(laptop) {
+		padding: 16px 24px;
+	}
+	@include breakpoint(medium){
+		display: flex;
+		align-items: center;
+	}
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 18px 24px;
+		height: 100%;
+		@include breakpoint(laptop) {
+			flex-wrap: wrap;
+		}
+	}
+
+	.icon-title-list__box {
+		box-shadow: initial;
+		border-radius: 0;
+		min-height: initial;
+		transform: initial;
+		flex-grow: 1;
+		gap: 8px 16px;
+		justify-content: initial;
+		padding-inline: 0;
+	}
+
+	.icon-title-list__title {
+		flex-shrink: 0;
+	}
+
+	&__form {
+		@include flex-width(77.7%);
+		@include breakpoint(laptop) {
+			@include flex-width(100%);
+		}
+		&-row {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: 16px;
+		}
+
+		&-col {
+			@include flex-width(100%);
+			&:first-child {
+				@include breakpoint(medium, true) {
+					@include flex-width(54.5%);
+				}
+			}
+			&:nth-child(2) {
+				@include breakpoint(medium, true) {
+					@include flex-width(23.6%);
+				}
+			}
+			&:nth-child(3) {
+				@include breakpoint(medium, true) {
+					@include flex-width(17%);
+				}
+			}
+		}
+
+		.custom-btn {
+			width: 100%;
+			min-width: initial;
+			    padding-block: 10px;
+		}
+
+		input:not(.custom-btn) {
+			width: 100%;
+			background: #898fb480;
+			box-shadow: 0px 1px 2px 0px #00000040 inset;
+			border-radius: 8px;
+			height: 37px;
+			border: 0;
+			padding: 10px 16px;
+			color: var(--color__white);
+			@include placeholder-color(var(--color__white));
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		input[type="date"] {
+			&::-webkit-calendar-picker-indicator {
+				cursor: pointer;
+				background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+			}
+		}
+	} //form
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+	}
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Prsntr</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+        }
+        .header {
+            text-align: left;
+            padding-bottom: 20px;
+        }
+        .header img {
+            max-width: 100px;
+        }
+        .content {
+            text-align: left;
+        }
+        .content h1 {
+            color: #343C6A;
+        }
+        .content p {
+            color: #343C6A;
+        }
+        .button-container {
+            text-align: left;
+            margin: 20px 0;
+        }
+        .button {
+            background-color: #E80C89;
+            color: #ffffff;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .social-icons {
+            text-align: left;
+            margin: 20px 0;
+        }
+        .social-icons img {
+            width: 30px;
+            margin: 0 5px;
+        }
+        .footer {
+            text-align: left;
+            font-size: 12px;
+            color: #999999;
+        }
+        .footer a {
+            color: #E80C89;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <img src="prsntr_logo.png" alt="PRSNTR Logo">
+        </div>
+        <div class="content">
+            <h1>Welcome to Prsntr</h1>
+            <p>Hi {{name}},</p>
+            <p>Here are your login details:</p>
+            <p>Email: {{user email address}}</p>
+            <p>Password: {{password}}</p>
+            <div class="button-container">
+                <a href="{{login_link}}" class="button">Login Now</a>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/company/presentingeasy/"><img src="linkedin_icon.png" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/presentingeasy/"><img src="instagram_icon.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@prsntr5529"><img src="youtube_icon.png" alt="YouTube"></a>
+        </div>
+        <div class="footer">
+            <p>You're receiving this email because you used prsntr.com</p>
+            <p>If you feel you received it by mistake, <a href="{{unsubscribe_link}}">click here</a></p>
+            <p>@PRSNTR Pty. Ltd.</p>
+        </div>
+    </div>
+</body>
+</html>

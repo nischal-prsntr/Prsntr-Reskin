@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 500 - Internal Server Error</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: 100vh;
+            text-align: left;
+            color: #343C6A;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .logo img {
+            width: 150px;
+            height: 44px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 64px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #343C6A;
+        }
+        .subtitle {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .message {
+            font-size: 19px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #777;
+            width: 700px;
+            max-width: 100%;
+        }
+        .home-link {
+            font-size: 19px;
+            font-weight: 400;
+            color: #E80C89;
+            text-decoration: underline;
+        }
+        .illustration img {
+            max-width: 100%;
+            height: auto;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 1000px; 
+        }
+        @media (max-width: 1024px) {
+            .illustration img {
+                width: 100%;
+                height: auto;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+        @media (max-width: 600px) {
+            .title {
+                font-size: 48px;
+            }
+            .subtitle {
+                font-size: 20px;
+            }
+            .message {
+                font-size: 16px;
+            }
+            .logo img {
+                width: 120px;
+                height: auto;
+            }
+            .illustration img {
+                width: 80%; 
+                height: auto;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="prsntr_logo.png" alt="Prsntr Logo">
+    </div>
+    <div class="title">Error 500 - Internal Server Error</div>
+    <div class="subtitle">Sorry for the inconvenience.</div>
+    <div class="message">Something went wrong on our end. Please try again later. If the problem persists, contact our support team..</div>
+    <a href="https://www.prsntr.ai" class="home-link">Return to Home Page</a>
+    <div class="illustration">
+        <img src="error_500_image.png" alt="Under Maintenance Illustration">
+    </div>
+</body>
+</html>

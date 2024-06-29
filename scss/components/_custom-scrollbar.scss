@@ -1,0 +1,31 @@
+.pink-cust-scrlbar {
+	& {
+		--sb-track-color: var(--color__white);
+		--sb-thumb-color: var(--color__secondary);
+		--sb-size: 6px;
+		--radius: 0;
+	}
+
+	&::-webkit-scrollbar {
+		width: var(--sb-size);
+		@include breakpoint(medium) {
+			height: var(--sb-size);
+		}
+	}
+
+	&::-webkit-scrollbar-track {
+		background: var(--sb-track-color);
+		border-radius: var(--radius);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: var(--sb-thumb-color);
+		border-radius: var(--radius);
+	}
+
+	@supports not selector(::-webkit-scrollbar) {
+		& {
+			scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+		}
+	}
+}

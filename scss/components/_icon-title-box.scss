@@ -1,0 +1,55 @@
+.icon-title-list {
+	&__box {
+		--icon-size: 53px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px 48px;
+		min-height: 104px;
+		background: var(--color__pryblutodrkblu);
+		box-shadow: 0 2px 5px 0 #00000040;
+		border-radius: 6px;
+		text-decoration: none;
+		transition: transform 0.4s;
+		@include breakpoint(smaller){
+			justify-content: initial;
+			padding-inline: 16px;
+			gap: 8px 16px;
+		}
+
+		&:hover {
+			transform: translateY(-2px);
+		}
+	}
+
+	&__icon {
+		flex: 0 0 var(--icon-size);
+		max-width: var(--icon-size);
+		height: var(--icon-size);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		background-color: var(--color__icon__bg);
+		border-radius: 50%;
+		background-color: var(--color__pryblueoptoblktwo);
+
+		svg,img {
+			vertical-align: middle;
+		}
+	}
+
+	&__title {
+		color: var(--color__whttodimblu);
+	}
+}
+
+.icon-title-row {
+	@include grid(3, 24px);
+	@include breakpoint(ipadPro){
+		@include grid(2);
+	}
+	@include breakpoint(smaller){
+		@include grid(1, 24px);
+	}
+}

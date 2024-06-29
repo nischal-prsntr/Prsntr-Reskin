@@ -1,0 +1,52 @@
+.main-content {
+	&__side {
+		display: flex;
+		flex-direction: column;
+		@include breakpoint(wide) {
+			flex-wrap: wrap;
+			flex-direction: row;
+			gap: 0 16px;
+			justify-content: space-between;
+		}
+		@include breakpoint(medium) {
+			margin-block-start: 48px;
+		}
+
+		&-block {
+			@include breakpoint(medium) {
+				flex: 0 0 100%;
+			}
+		}
+	}
+}
+
+.tips {
+	&__inner {
+		background-color: var(--color__pryblutodrkblu);
+		border-radius: 8px;
+		padding: 24px 16px;
+	}
+
+	&__row {
+		@include grid(2, 14px);
+
+		@media screen and (max-width: 767px) {
+			@include grid(1);
+		}
+	}
+
+	&__block {
+		min-height: 98px;
+		padding: 18px 14px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		border-radius: 8px;
+		background-color: var(--color__pryblueoptoblktwo);
+
+		&-title {
+			color: var(--color__whttodimblu);
+		}
+	}
+}

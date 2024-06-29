@@ -1,0 +1,37 @@
+.tool-tip {
+	position: fixed;
+	top: 40px;
+	left: 64px;
+	background: var(--color__primary);
+	display: inline-block;
+	z-index: 4;
+	color: var(--color__white);
+	border-radius: 8px;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0.4s, opacity 0.4s;
+	pointer-events: none;
+	box-shadow: 0px 4px 9px 0px #00000040 inset;
+
+
+	&__text {
+		display: inline-block;
+		padding: 8px 14px;
+		position: relative;
+
+		&:before {
+			content: "";
+			position: absolute;
+			left: -7px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 0;
+			height: 0;
+			border-top: 8px solid transparent;
+			border-bottom: 8px solid transparent;
+			border-right: 8px solid var(--color__primary); // Change color to your preference
+		}
+	}
+}
+
+

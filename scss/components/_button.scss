@@ -1,0 +1,38 @@
+.custom-btn {
+	@include typography(16px, 1, 500);
+	border-radius: 8px;
+	background-color: var(--color__secondary);
+	color: var(--color__white);
+	padding: 15px 24px;
+	border: 1px solid var(--color__secondary);
+	transition: ease 0.4s;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+	min-width: 129px;
+	text-align: center;
+	@include breakpoint(small) {
+		min-width: initial;
+		padding: 12px 24px;
+	}
+
+	&:hover {
+		background-color: transparent;
+		color: var(--color__secondary);
+	}
+
+	&--green {
+		background-color: var(--color__green);
+		border-color: var(--color__green);
+
+		&:hover {
+			color: var(--color__green);
+		}
+	}
+
+	&--small {
+		padding: 11px 19px;
+		min-width: initial;
+		font-size: 14px;
+	}
+}

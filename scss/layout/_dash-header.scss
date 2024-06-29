@@ -1,0 +1,42 @@
+
+.dash-header {
+	padding-block: 48px;
+	@include breakpoint(small){
+		padding-block: 32px;
+	}
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		gap: 16px 32px;
+		@include breakpoint(small){
+			flex-wrap: wrap-reverse;
+		}
+	}
+
+	&__head-title > *{
+		color: var(--color__pryblutowht);
+	}
+
+	&__head-meta {
+		flex-shrink: 0;
+		@include breakpoint(small){
+			flex: 0 0 100%;
+		}
+		svg {
+			vertical-align: middle;
+		}
+		.meta-lists {
+			display: flex;
+			gap: 24px;
+			@include breakpoint(small){
+				gap: 16px;
+				justify-content: flex-end;
+			}
+		}
+
+		.icon {
+			cursor: pointer;
+		}
+	}
+}

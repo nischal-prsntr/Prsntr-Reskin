@@ -1,0 +1,159 @@
+table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 15px;
+	line-height: 1.2;
+	font-weight: 500;
+	text-align: left;
+	box-shadow: 0 2px 5px 0 #00000040;
+	@include breakpoint(small) {
+		font-size: 13px;
+	}
+
+	th,
+	td {
+		padding-inline: 8px;
+		padding-block: 16px;
+	}
+
+	tr {
+		th,
+		td {
+			&:first-child {
+				padding-left: 32px;
+				@include breakpoint(small) {
+					padding-left: 24px;
+				}
+			}
+			&:last-child {
+				padding-right: 32px;
+				@include breakpoint(small) {
+					padding-right: 24px;
+				}
+			}
+		}
+	}
+
+	thead {
+		background-color: var(--color__pryblutodrkblu);
+		border-radius: 8px 8px 0 0;
+		overflow: hidden;
+		color: var(--color__white);
+
+		th {
+			font-weight: 300;
+			&:first-child {
+				border-radius: 8px 0 0 0;
+			}
+			&:last-child {
+				border-radius: 0 8px 0 0;
+			}
+		}
+	}
+
+	tbody {
+		font-size: 14px;
+		background-color: var(--color__whitetoblkthre);
+		color: var(--color__pryblutodimblue);
+		@include breakpoint(small) {
+			font-size: 12px;
+		}
+
+		tr {
+			&:first-child {
+				td {
+					padding-top: 24px;
+				}
+			}
+			&:last-child {
+				td {
+					padding-bottom: 32px;
+
+					&:first-child {
+						border-radius: 0 0 0 8px;
+						margin-top: 8px;
+					}
+					&:last-child {
+						border-radius: 0 0 8px 0;
+					}
+				}
+			}
+		}
+
+		.table-text {
+			width: 43.4%;
+		}
+
+		.action {
+			.edit {
+				margin-right: 32px;
+				@include breakpoint(small){
+					margin-right: 16px;
+				}
+			}
+
+			button{
+				width: 21px;
+			}
+		}
+
+		button {
+			border: 0;
+			background: transparent;
+			padding: 0;
+			cursor: pointer;
+		}
+	} //tody
+}
+
+// ----------------- Table overflow scroll
+.table-overflow-scroll {
+	max-height: 574px;
+	overflow: auto;
+	@include breakpoint(medium) {
+		max-height: initial;
+		width: 100%;
+		white-space: nowrap;
+	}
+
+	thead {
+		@include breakpoint(medium, true) {
+			position: sticky;
+			top: 0;
+		}
+	}
+
+	& {
+		--sb-track-color: #ffffff;
+		--sb-thumb-color: #343c6a;
+		--sb-size: 9px;
+		--radius: 14px;
+		@include breakpoint(medium) {
+			--sb-size: 6px;
+			--radius: 0;
+		}
+	}
+
+	&::-webkit-scrollbar {
+		width: var(--sb-size);
+		@include breakpoint(medium) {
+			height: var(--sb-size);
+		}
+	}
+
+	&::-webkit-scrollbar-track {
+		background: var(--sb-track-color);
+		border-radius: var(--radius);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: var(--sb-thumb-color);
+		border-radius: var(--radius);
+	}
+
+	@supports not selector(::-webkit-scrollbar) {
+		& {
+			scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+		}
+	}
+}

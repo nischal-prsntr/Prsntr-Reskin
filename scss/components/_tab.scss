@@ -1,0 +1,218 @@
+.site-tab {
+	&__head {
+		@include grid(4, 32px);
+		@media screen and (max-width: 1199px) {
+			@include grid(3, 24px);
+		}
+		@media screen and (max-width: 991px) {
+			@include grid(2);
+		}
+		@media screen and (max-width: 567px) {
+			@include grid(1, 24px);
+		}
+
+		&-item {
+			padding: 10px 8px;
+			text-align: center;
+			background-color: var(--color__light-grey-two);
+			border-radius: 8px;
+			cursor: pointer;
+			min-height: 68px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: ease 0.4s;
+			color: var(--color__white);
+
+			&:hover,
+			&.active {
+				background-color: var(--color__primary);
+				color: var(--color__white);
+			}
+		}
+	} //head
+
+	//------------- tab content
+	&__content {
+		&-item {
+			padding: 24px;
+			background-color: var(--color__whitetoblkthre);
+			display: none;
+
+			&.active {
+				display: block;
+			}
+			&.no-bg {
+				padding: 0;
+				background-color: transparent;
+			}
+		}
+
+		// ------------------- Tab with texts
+		.text-holder {
+			font-size: 14px;
+			color: var(--color__blktodimblu);
+
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p,
+			ol,
+			ul,
+			blockquote {
+				margin-block-end: 16px;
+			}
+
+			h5,
+			h6 {
+				font-weight: 700;
+			}
+
+			h6 {
+				color: var(--color__blktodimblu);
+			}
+
+			ul,
+			ol {
+				padding: 0 0 0 17px;
+			}
+		}
+
+		// ------------------- Tab with Iframe video
+		.vid-holder {
+			text-align: center;
+			iframe {
+				width: 100%;
+				aspect-ratio: 3/2;
+				@media screen and (min-width: 768px) {
+					width: 95%;
+				}
+				@media screen and (min-width: 1601px) {
+					width: 80%;
+				}
+			}
+		}
+	}
+
+	// -------------------- Nested Tab
+	&__nested-tab {
+		//-------Nested head
+		&__head {
+			@include grid(4, 28px);
+			@media screen and (max-width: 1199px) {
+				@include grid(3);
+			}
+			@media screen and (max-width: 991px) {
+				@include grid(2);
+			}
+			@media screen and (max-width: 767px) {
+				@include grid(1, 24px);
+			}
+
+			&-item {
+				padding: 6px 16px;
+				background-color: var(--color__white);
+				border-radius: 8px;
+				cursor: pointer;
+				min-height: 54px;
+				display: flex;
+				align-items: center;
+				transition: ease 0.4s;
+				box-shadow: 0px 2px 5px 0px #00000040;
+
+				&:hover,
+				&.active {
+					background-color: var(--color__primary);
+
+					.title {
+						color: var(--color__white);
+					}
+					img {
+						filter: invert(1);
+					}
+				}
+			}
+
+			.icon {
+				@include flex-width(34px);
+			}
+
+			.title {
+				display: flex;
+				align-items: center;
+				gap: 40px;
+				width: 100%;
+				@media screen and (max-width: 1199px) {
+					gap: 24px;
+				}
+				@media screen and (max-width: 991px) {
+					gap: 16px;
+				}
+				img {
+					vertical-align: middle;
+				}
+			}
+		} //head
+
+		&__content{
+			&-item{
+				display: none;
+
+				&.active{
+					display: block
+				}
+			}
+		}
+	}
+
+	// ------------------ Card List
+	&__card-list {
+		@include grid(4, 24px);
+		@media screen and (max-width: 1199px) {
+			@include grid(3);
+		}
+		@media screen and (max-width: 992px) {
+			@include grid(2);
+		}
+		
+		@media screen and (max-width: 767px) {
+			@include grid(1);
+		}
+
+		.card-inner {
+			box-shadow: 0px 2px 5px 0px #00000040;
+			background-color: var(--color__white);
+			border-radius: 8px;
+			padding: 15px 16px 29px 17px;
+			height: 100%;
+			min-height: 242px;
+		}
+
+		.title-icon {
+			display: flex;
+			gap: 16px;
+			margin-bottom: 24px;
+
+			.title {
+				align-self: center;
+			}
+			.icon {
+				@include flex-width(31px);
+			}
+
+			img {
+				vertical-align: middle;
+			}
+		}
+
+		.card-text {
+			p {
+				&:not(:last-child) {
+					margin-bottom: 14px;
+				}
+			}
+		}
+	} //list
+}

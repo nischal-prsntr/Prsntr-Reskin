@@ -1,0 +1,164 @@
+textarea {
+	height: 100px;
+	border-radius: 8px;
+	background-color: var(--color__white);
+	width: 100%;
+	padding: 16px;
+	vertical-align: top;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.custom-checkbox {
+	--checkbox-size: 16px;
+	input[type="checkbox"] {
+		display: none;
+	}
+
+	//---------------------- styling custom radio
+	label {
+		position: relative;
+		padding-left: 32px;
+		// pointer-events: none;
+		font-weight: 500;
+		cursor: pointer;
+		color: var(--color__pryblutodimblue);
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+		}
+
+		&:before {
+			top: 2px;
+			left: 0;
+			width: var(--checkbox-size);
+			height: var(--checkbox-size);
+			border-radius: 2px;
+			border: 1px solid var(--color__secondary);
+			background: transparent;
+			pointer-events: initial;
+			cursor: pointer;
+			border-radius: 50px;
+		}
+
+		&:after {
+			left: 6px;
+			top: 4px;
+			width: 4px;
+			height: 10px;
+			border: solid var(--color__white);
+			border-width: 0 2px 2px 0;
+			transform: rotate(37deg);
+			transition: 0.2s ease;
+			background: transparent;
+			border-radius: 0;
+			opacity: 0;
+			visibility: hidden;
+		}
+	} //label
+
+	//--------------------- When input is checked
+	[type="checkbox"]:checked + label {
+		&:after {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		&:before {
+			background: var(--color__secondary);
+		}
+	}
+}
+
+// --------------------------- Multi step form
+.data-field {
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		gap: 72px;
+	}
+
+	&__title {
+		color: var(--color__pryblutodimblue);
+		display: flex;
+		justify-content: space-between;
+		gap: 16px;
+
+		.icon {
+			cursor: pointer;
+			flex-shrink: 0;
+			display: flex;
+			gap: 16px;
+
+			.edit {
+				color: var(--color__secondary);
+			}
+
+			svg {
+				vertical-align: middle;
+				margin-bottom: 3px;
+			}
+		}
+	}
+
+	&__block {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	&__form-input-col {
+		display: flex;
+		align-items: center;
+		gap: 16px 48px;
+		@include breakpoint(medium) {
+			flex-wrap: wrap;
+		}
+
+		input {
+			height: 38px;
+			border-radius: 8px;
+			padding: 10px;
+			max-width: 279px;
+			border: 0;
+			@include breakpoint(small) {
+				max-width: 100%;
+			}
+
+			&:focus {
+				outline: none;
+				border: 0;
+			}
+		}
+	}
+	&__col-title {
+		@include flex-width(20%);
+		@include breakpoint(medium) {
+			@include flex-width(100%);
+		}
+	}
+
+	&__checkbox-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px 40px;
+	}
+
+	&.inside-scrollable {
+		max-height: 530px;
+		overflow: auto;
+		padding-bottom: 40px;
+		padding-right: 32px;
+		@include breakpoint(small) {
+			padding-right: 16px;
+		}
+
+		.data-light-text {
+			color: var(--color__pryblutodimblue);
+		}
+	}
+}

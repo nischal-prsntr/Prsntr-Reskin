@@ -1,0 +1,80 @@
+// -------------------------- Fonts
+$font__base: "Inter", sans-serif;
+
+:root {
+	/* --------------------------- Theme Colors */
+	--color__primary: #343c6a;
+	--color__secondary: #e80c89;
+	--color__light-secondary: #ffb9e180;
+	--color__text: #000;
+	--color__body__bg: #f1f3ff;
+	--color__text__dark: #343c6a;
+	--color__text__black: #000;
+	--color__dim-blue: #5e658f;
+	--color__dark-blue: #282b3b;
+	--color__white: #fff;
+	--color__black: #000;
+	--color__black-two: #1e1e1e;
+	--color__black-three: #1a1a1a;
+	--color__primary-opa: #898fb480;
+	--color__light-grey: #b1b1b1;
+	--color__light-grey-two: #c4c4c4;
+	--color__success: #80c89e;
+	--color__success-dark: #18A08F;
+	--color__blue: #2082DD;
+	--color__red: #A61818;
+	--color__green: #18A661;
+}
+
+body {
+	&.light-mode {
+		// ------------------------------- Light Mode
+		--color__whttodimblu: var(--color__white);
+		--color__blktodimblu: var(--color__black);
+		--color__lghtpnktodimblue: var(--color__light-secondary);
+		--color__grytoblktwo: var(--color__body__bg);
+		--color__whitetoblkthre: var(--color__white);
+		--color__pryblutowht: var(--color__primary);
+		--color__pryblutogry: var(--color__primary);
+		--color__pryblutodrkblu: var(--color__primary);
+		--color__pryblutodimblue: var(--color__primary);
+		--color__pryblueoptoblktwo: var(--color__primary-opa);
+		--color__blktowhite: var(--color__black);
+		--color__whttogry: var(--color__white);
+
+	}
+
+	// ------------------------------- Dark Mode
+	&.dark-mode {
+		--color__whttodimblu: var(--color__dim-blue);
+		--color__blktodimblu: var(--color__dim-blue);
+		--color__pryblutodrkblu: var(--color__dark-blue);
+		--color__lghtpnktodimblue: var(--color__dim-blue);
+		--color__grytoblktwo: var(--color__black-two);
+		--color__whitetoblkthre: var(--color__black-three);
+		--color__pryblutowht: var(--color__white);
+		--color__pryblutogry: var(--color__light-grey);
+		--color__pryblutodimblue: var(--color__dim-blue);
+		--color__pryblueoptoblktwo: var(--color__black-two);
+		--color__blktowhite: var(--color__white);
+		--color__whttogry: var(--color__light-grey);
+	}
+}
+
+// --------------------------- Breakpoints
+$breakpoints: (
+	"xxs": 320px,
+	"iPhone5": 374px,
+	"extraSmall": 479px,
+	"smaller": 575px,
+	"small": 767px,
+	"medium": 991px,
+	"ipadPro": 1024px,
+	"wide": 1199px,
+	"laptop": 1400px,
+	"extraWide": 1930px
+);
+
+// --------------------------- Container
+$container-width: 100%;
+$container-padding: 41px;

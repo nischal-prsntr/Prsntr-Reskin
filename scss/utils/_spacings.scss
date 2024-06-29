@@ -1,0 +1,29 @@
+// --------------------------- Spacings
+
+// ------------------------------------------------------- Margin
+$base-spacing: 8px;
+$max-spacing: 26;
+$steps: $max-spacing / ($base-spacing / 8);
+
+@for $i from 1 through $steps {
+	.mb-#{$i} {
+		margin-bottom: $i * $base-spacing;
+	}
+	.mt-#{$i} {
+		margin-top: $i * $base-spacing;
+	}
+}
+
+// ------------------------------------------------------- Padding
+@for $i from 1 through $steps {
+	.pb-#{$i} {
+		padding-bottom: $i * $base-spacing;
+	}
+	.pt-#{$i} {
+		padding-top: $i * $base-spacing;
+	}
+
+	.py-#{$i} {
+		padding-block: $i * $base-spacing;
+	}
+}

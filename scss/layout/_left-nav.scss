@@ -1,0 +1,85 @@
+.sidenav-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100dvh;
+	width: var(--sideNavWidth);
+	border-radius: 0 6px 6px 0;
+	background: var(--color__primary);
+	padding: 40px 0;
+	box-shadow: 0 4px 9px 0 #00000040 inset;
+	z-index: 44;
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		gap: 16px;
+		overflow: auto;
+	}
+
+	.icon-list {
+		ul {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			gap: 16px;
+
+			li {
+				text-align: center;
+
+				a {
+					position: relative;
+					padding: 8px;
+					display: block;
+
+					&:after {
+						content: "";
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 2px;
+						height: 100%;
+						background: var(--color__secondary);
+						visibility: hidden;
+						opacity: 0;
+						transition: ease 0.4s;
+					}
+
+					&.active,
+					&:hover {
+						&:after {
+							visibility: visible;
+							opacity: 1;
+						}
+
+						svg path {
+							fill: var(--color__white);
+						}
+					}
+				}
+
+				svg {
+					vertical-align: middle;
+					path {
+						transition: ease 0.4s;
+					}
+				}
+
+				&.tool-active{
+					.tool-tip {
+						visibility: visible;
+						opacity: 1;
+					}
+				}
+			} //li
+		} //ul
+	} //icon list
+}

@@ -1,0 +1,528 @@
+// ================================= Progress Head
+.progress-head {
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px 32px;
+	}
+
+	&__icon-text {
+		.inner {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+
+		.icon {
+			// @include flex-width(21px);
+			min-width: 21px;
+		}
+
+		svg {
+			vertical-align: middle;
+			path {
+				fill: var(--color__light-grey);
+			}
+		}
+		.text {
+			@include breakpoint(small) {
+				font-size: 14px;
+			}
+		}
+		.text,
+		a {
+			text-decoration: none;
+			color: var(--color__light-grey);
+		}
+
+		.inner.active {
+			pointer-events: none;
+
+			svg path {
+				fill: var(--color__secondary);
+			}
+
+			a,
+			.text {
+				color: var(--color__secondary);
+			}
+		}
+
+		.inner.checked {
+			svg path {
+				fill: var(--color__pryblutodimblue);
+			}
+
+			a,
+			.text {
+				color: var(--color__pryblutodimblue);
+			}
+		}
+	} //text
+
+	&__bar {
+		margin-top: 24px;
+		height: 0.5px;
+		background: var(--color__light-grey);
+		margin-left: -40px;
+	}
+
+	&__progress-line {
+		background-color: var(--color__secondary);
+		height: 4px;
+		position: relative;
+		top: -1px;
+	}
+}
+
+// ================================= Progress main content
+.data-light-text {
+	font-size: 14px;
+	margin-top: 8px;
+	color: var(--color__light-grey);
+	display: block;
+}
+
+// ================================= Progress Right Nav
+.main-content__aside-progress {
+	position: fixed !important;
+	left: initial;
+	top: 124px;
+	right: -327px;
+	width: 350px;
+	height: calc(100dvh - 120px);
+	transition: right 0.4s;
+}
+.progress-nav {
+	overflow: auto;
+	padding: 16px 24px;
+	background-color: var(--color__pryblutodrkblu);
+	border-radius: 8px 0 0 8px;
+	box-shadow: 0 2px 5px 0 #00000040;
+	color: var(--color__white);
+	position: relative;
+	z-index: 4;
+	height: 100%;
+
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	svg {
+		vertical-align: middle;
+	}
+
+	&__head {
+		display: flex;
+		gap: 8px;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
+		padding-right: 32px;
+
+		.icon {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+		svg {
+			cursor: pointer;
+		}
+	}
+
+	// --------------------------- List
+	&__list {
+		--list-gap: 32px;
+		ul {
+			display: flex;
+			flex-direction: column;
+			gap: var(--list-gap);
+		}
+
+		.list-upper {
+			display: flex;
+			gap: 8px;
+			justify-content: space-between;
+		}
+
+		.check-icon-text {
+			display: flex;
+			gap: 18px;
+		}
+
+		.checked-icon {
+			min-width: 14px;
+			opacity: 0;
+
+			svg {
+				vertical-align: baseline;
+			}
+		}
+
+		.drop-icon {
+			min-width: 12px;
+		}
+
+		li {
+			color: #5e658f;
+
+			&.active {
+				color: var(--color__white);
+
+				.drop-icon svg path {
+					stroke: var(--color__white);
+				}
+			}
+
+			&.active.checked {
+				color: var(--color__success);
+
+				.drop-icon svg path {
+					stroke: var(--color__success);
+				}
+
+				.checked-icon {
+					opacity: 10;
+				}
+			} //active
+
+			&.has-sub-list {
+				display: flex;
+				flex-direction: column;
+				gap: var(--list-gap);
+
+				> .list-upper {
+					cursor: pointer;
+				}
+			}
+		}
+		//li
+	}
+
+	// --------------------------- Sub list
+	&__sub-list {
+		display: none;
+
+		// --------- Strucutre Sub text
+		.has-sub-text.checked {
+			.list-upper {
+				cursor: pointer;
+			}
+		}
+		.has-sub-text {
+			.sub-text {
+				display: none;
+				padding-top: 16px;
+			}
+
+			&.opened-sub-text {
+				.list-upper {
+					.drop-icon svg {
+						transform: scaleY(-1);
+					}
+				}
+				.sub-text {
+					display: block;
+				}
+			}
+		}
+
+		.sub-text {
+			color: var(--color__white);
+
+			ol,
+			ul {
+				padding: 0 0 0 16px;
+			}
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p,
+			ol,
+			ul {
+				margin-bottom: 16px;
+			}
+		}
+
+		ul {
+			gap: 18px;
+		}
+		li {
+			.drop-icon {
+				svg path {
+					stroke: #5e658f !important;
+				}
+			}
+			&.active {
+				.drop-icon svg path {
+					stroke: var(--color__white) !important;
+				}
+				&.checked {
+					.drop-icon svg path {
+						stroke: var(--color__success) !important;
+					}
+				}
+			}
+		}
+		.title {
+			font-size: 14px;
+		}
+	}
+
+	.has-sub-list.open-sub {
+		> .list-upper .drop-icon svg {
+			transform: scaleY(-1);
+		}
+		.progress-nav {
+			&__sub-list {
+				display: block;
+			}
+		} //nav
+	}
+
+	//list
+}
+
+.progress-nav-opener {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	display: flex;
+	align-items: flex-start;
+	width: 40px;
+	padding: 20px 0 0 6px;
+	z-index: 4;
+	visibility: visible;
+	opacity: 1;
+	transition: ease-in 0.2s;
+	cursor: pointer;
+
+	svg {
+		transform: scaleX(-1);
+	}
+}
+
+body.active-progress-nav .main-content__aside-progress {
+	right: 0;
+
+	.progress-nav-opener {
+		visibility: hidden;
+		opacity: 0;
+	}
+}
+
+// ===================================== Progress Help
+.progress-help {
+	--progress-width: 283px;
+	--question-size: 27px;
+	position: absolute;
+	left: -27px;
+	top: 40px;
+	width: var(--progress-width);
+	color: var(--color__black);
+	display: flex;
+	transition: left 0.4s;
+	z-index: 2;
+
+	&__icon {
+		min-width: var(--question-size);
+		text-align: left;
+		position: relative;
+		right: -1px;
+		height: 38px;
+		background-color: var(--color__secondary);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 4px 4px 0 #00000040;
+		cursor: pointer;
+
+		svg {
+			width: 8px;
+			path {
+				fill: var(--color__white);
+			}
+		}
+	}
+
+	&__content {
+		background-color: var(--color__white);
+		visibility: hidden;
+		opacity: 0;
+		transition: ease 0.4s;
+		height: calc(100dvh - 130px);
+		overflow: auto;
+		padding-bottom: 16px;
+
+		&-head {
+			position: sticky;
+			top: 0;
+			padding: 8px;
+			text-align: center;
+			background-color: var(--color__pryblutodrkblu);
+			box-shadow: 0 4px 4px 0 #00000040;
+
+			h5 {
+				color: var(--color__white);
+			}
+		}
+
+		.text {
+			font-size: 14px;
+			padding: 36px 16px;
+			color: var(--color__primary);
+
+			ol,
+			ul {
+				padding: 0 0 0 16px;
+			}
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p,
+			ol,
+			ul {
+				margin-bottom: 16px;
+			}
+		}
+	}
+
+	&__main-head-title {
+		margin-bottom: 24px !important;
+	}
+
+	&.active-help {
+		left: -283px;
+
+		.progress-help__content {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	.help-cat-list {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		&__item {
+			box-shadow: 0px 0.5px 1px 0px #00000040;
+			padding: 10px 8px;
+			border-radius: 8px;
+			cursor: pointer;
+		}
+
+		&__title {
+			font-weight: 400;
+			margin-bottom: 0 !important;
+			text-align: center;
+		}
+
+		&__text {
+			margin-top: 18px;
+			color: var(--color__pryblutodimblue);
+			cursor: initial;
+			display: none;
+		}
+
+		&__item {
+			&.active-help-cat {
+				.help-cat-list__text {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+// ================================== Simple content
+.simple-text {
+	p {
+		&:not(:last-child) {
+			margin-bottom: 16px;
+		}
+	}
+}
+
+// ================================= Icon text box
+.progress-icon-text {
+	img {
+		vertical-align: top;
+	}
+	&__inner {
+		@include grid(4, 16px, 32px);
+		@include breakpoint(wide) {
+			@include grid(3);
+		}
+		@include breakpoint(medium) {
+			@include grid(2);
+		}
+		@include breakpoint(small) {
+			@include grid(2, 16px);
+		}
+		@include breakpoint(smaller) {
+			@include grid(1, 24px);
+		}
+	}
+
+	.inner {
+		display: flex;
+		box-shadow: 0 2px 5px 0 #00000040;
+		height: 100%;
+		padding: 16px 18px;
+		background-color: var(--color__white);
+		gap: 16px 40px;
+		border-radius: 8px;
+		text-decoration: none;
+		transition: transform 0.4s;
+		align-items: center;
+		@include breakpoint(smaller) {
+			gap: 8px 24px;
+			height: initial;
+			min-height: 64px;
+		}
+		&:hover {
+			transform: translateY(-2px);
+		}
+	}
+
+	&__icon {
+		min-width: 32px;
+	}
+
+	// &__text {
+	// 	align-self: center;
+	// }
+}
+
+body {
+	&.inner-pages {
+		.main-content {
+			@include breakpoint(medium) {
+				padding-right: 48px;
+			}
+			&__inner {
+				column-gap: 40px;
+			}
+
+			// &__center {
+			// 	flex: 1 0 0;
+			// }
+
+			&__aside-progress {
+				position: relative;
+				// @include flex-width(350px);
+			}
+		}
+	}
+	//inner pages
+}
