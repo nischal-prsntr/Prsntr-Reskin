@@ -209,4 +209,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+//Handle add key person
+document.addEventListener('DOMContentLoaded', () => {
+    const addPersonBtn = document.getElementById('add-person-btn');
+    const keyPersonContainer = document.getElementById('key-person-container');
+    
+    addPersonBtn.addEventListener('click', () => {
+        // Clone the first key person block
+        const keyPersonBlocks = document.querySelectorAll('.key-person-block');
+        const lastKeyPersonBlock = keyPersonBlocks[keyPersonBlocks.length - 1];
+        const newKeyPersonBlock = lastKeyPersonBlock.cloneNode(true);
+
+        // Update the title and IDs/Names of the cloned block
+        const newIndex = keyPersonBlocks.length + 1;
+        newKeyPersonBlock.querySelector('h6').textContent = `Key Person ${newIndex}:`;
+
+        const checkboxes = newKeyPersonBlock.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach((checkbox, index) => {
+            checkbox.id = `check-${newIndex * 4 - 3 + index}`;
+            checkbox.name = `check-group-${newIndex}`;
+            checkbox.nextElementSibling.setAttribute('for', checkbox.id);
+        });
+
+        // Append the new block to the container
+        keyPersonContainer.appendChild(newKeyPersonBlock);
+    });
+});
+
+//Handle add agenda
+document.getElementById('add-agenda-btn').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Get the data-field container
+    var dataFieldContainer = document.querySelector('.data-field__inner');
+
+    // Get the current number of agenda items
+    var agendaCount = dataFieldContainer.querySelectorAll('.data-field__block').length;
+
+    // Create a new data-field block
+    var newDataFieldBlock = document.createElement('div');
+    newDataFieldBlock.className = 'data-field__block';
+    newDataFieldBlock.innerHTML = `
+        <div class="data-field__block-text-holder">
+            <h6 class="data-field__title weight-700">Agenda ${agendaCount + 1}</h6>
+            <span class="data-light-text">What would you want the agenda ${agendaCount + 1} to be?</span>
+        </div>
+        <div class="data-field__textarea">
+            <textarea></textarea>
+        </div>
+    `;
+
+    // Append the new data-field block to the container
+    dataFieldContainer.appendChild(newDataFieldBlock);
+});
+
+
 
