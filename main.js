@@ -263,5 +263,13 @@ document.getElementById('add-agenda-btn').addEventListener('click', function(eve
     dataFieldContainer.appendChild(newDataFieldBlock);
 });
 
+//Handling Video Recorder
+const video = document.getElementById('video');
+        const startButton = document.getElementById('start-recording');
 
+        async function startRecording() {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+            video.srcObject = stream;
+        }
 
+        startButton.addEventListener('click', startRecording);

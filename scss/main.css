@@ -1277,6 +1277,24 @@ h6, .tny-title {
   min-width: 129px;
   text-align: center;
 }
+
+.submit-btn {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 8px;
+  background-color: #18A661;
+  color: var(--color__white);
+  padding: 15px 24px;
+  border: 1px solid #18A661;
+  transition: ease 0.4s;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  min-width: 129px;
+  text-align: center;
+}
 @media screen and (max-width: 767px) {
   .custom-btn {
     min-width: initial;
@@ -3239,7 +3257,7 @@ canvas {
   height: 400px;
 }
 
-/*Audio Player in Congratulations Page*/
+/* Audio Player in Congratulations Page */
 .audio-block {
   display: flex;
   justify-content: center;
@@ -3280,4 +3298,49 @@ audio::-webkit-media-controls-fullscreen-button {
 audio::-moz-media-controls {
   background-color: #3A3F71; 
   color: #FFFFFF; 
+}
+
+/* Video Recorder */
+.video-recording {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.video-recording__container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.video-recording__video {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.video-recording__controls {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.video-recording__control-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.video-recording__control-button:hover {
+  color: #e80c89;
 }
