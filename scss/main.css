@@ -2976,3 +2976,264 @@ body.dark-mode .simple-text-with-icon__icon img {
 .notifications__header {
   margin: 20px 0 10px;
 }
+
+.presentation-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.presentation-video {
+  flex: 2;
+}
+
+.presentation-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.confidence-score {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 438px; 
+}
+
+.score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.score-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #343C6A;
+}
+
+.stars {
+  display: flex;
+}
+
+.star {
+  font-size: 18px;
+  color: #ccc;
+}
+
+.star.active {
+  color: #E80C89;
+}
+
+.score-circle {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 20px; /* Added padding to the bottom */
+}
+
+.score-circle canvas {
+  width: 100%;
+  height: auto;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #ACB2D5;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke: #80C89E;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+      stroke-dasharray: 0 100;
+  }
+}
+
+.percentage {
+  font-size: 0.5em;
+  text-anchor: middle;
+  fill: #333;
+  font-family: 'Inter', sans-serif;
+}
+
+.highlight {
+  color: #E80C89;
+  font-weight: bold;
+}
+
+.presentation-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn {
+  background-color: #E80C89;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.retake-btn {
+  background-color: #E80C89;
+}
+
+.structure-btn {
+  background-color: #5E658F;
+}
+
+@media (max-width: 768px) {
+  .presentation-container {
+      flex-direction: column;
+      align-items: stretch;
+  }
+
+  .presentation-video, .presentation-details {
+      flex: none;
+      width: 100%;
+  }
+}
+.feedback-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+
+.feedback-section {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  background-color: #f5f5f5;
+  padding-top: 0;
+}
+.feedback-details {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #343C6A;
+  text-align: left;
+}
+
+.feedback-details-table {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #5E658F;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+.feedback-details-table-item {
+  text-align: center;
+  width: 50%;
+}
+
+.feedback-details-table-item p:first-child {
+  font-size: 14px;
+  color: #5E658F;
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.feedback-details-table-item p:last-child {
+  font-size: 18px;
+  color: #343C6A;
+  margin: 10px 0 0 0;
+}
+
+.feedback-section:last-child {
+  margin-right: 0;
+}
+
+.feedback-header {
+  background-color: #343C6A;
+  padding: 10px 20px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -20px -20px 20px -20px;
+}
+
+.feedback-header h3 {
+  color: #fff;
+  font-size: 18px;
+  margin: 0;
+}
+
+.stars {
+  display: flex;
+}
+
+.star {
+  font-size: 18px;
+  color: #ccc;
+}
+
+.star.active {
+  color: #E80C89;
+}
+
+.feedback-chart {
+  margin-bottom: 20px;
+}
+
+.feedback-chart img {
+  width: 100%;
+  height: auto;
+}
+
+.feedback-details ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.feedback-details ul li {
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .feedback-container {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .feedback-section {
+      margin-right: 0;
+  }
+}
+
+canvas {
+  width: 400px;
+  height: 400px;
+}
