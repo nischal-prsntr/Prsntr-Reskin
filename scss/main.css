@@ -2048,6 +2048,7 @@ textarea:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 @media screen and (max-width: 767px) {
   .record-present__btn {
@@ -3236,4 +3237,47 @@ body.dark-mode .simple-text-with-icon__icon img {
 canvas {
   width: 400px;
   height: 400px;
+}
+
+/*Audio Player in Congratulations Page*/
+.audio-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3A3F71; 
+  padding: 10px; 
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+audio {
+  width: 100%;
+  max-width: 900px; 
+  background-color: #3A3F71; 
+  color: #FFFFFF; 
+  border: none; 
+  outline: none; 
+}
+
+/* Customize controls */
+audio::-webkit-media-controls-panel {
+  background-color: #3A3F71; 
+  color: #FFFFFF; 
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-seek-back-button,
+audio::-webkit-media-controls-seek-forward-button,
+audio::-webkit-media-controls-fullscreen-button {
+  filter: invert(1);
+}
+
+/* For other browsers */
+audio::-moz-media-controls {
+  background-color: #3A3F71; 
+  color: #FFFFFF; 
 }
