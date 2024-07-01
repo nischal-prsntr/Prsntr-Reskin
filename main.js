@@ -273,3 +273,16 @@ const video = document.getElementById('video');
         }
 
         startButton.addEventListener('click', startRecording);
+
+//Handling Chat Scroll
+document.addEventListener('DOMContentLoaded', function() {
+    var chatMessages = document.querySelector('.chat-support__messages');
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    //Update scroll position when a new message is added
+    var observer = new MutationObserver(function() {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
+
+    observer.observe(chatMessages, { childList: true });
+});
